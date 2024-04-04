@@ -27,11 +27,22 @@ def get_all_book():
     sql = "SELECT * FROM book"
     cursor.execute(sql)
     result = cursor.fetchall()
-    cursor.close()
-    data = {"message": result}
+    # print(result)
+    
+    book_result = []
+    for book in result:
+        book_dict = {}
+        book_dict["bookID"] = book[0]
+        book_dict["book_title"] = book[1]
+        book_dict["book_author"] = book[2]
+        book_dict["book_genre"] = book[3]
+        book_result.append(book_dict)
+
+    data = {"message": book_result}
     return jsonify(data), 200
   except Exception as e:
     data = {"error": str(e)}
+    print(data)
     return jsonify(data), 500    
 
 
