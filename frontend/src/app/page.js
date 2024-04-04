@@ -1,7 +1,14 @@
-import Image from "next/image";
+import React from 'react';
+import Navbar from './Navbar';
+import Body from './Body';
+
 
 export default function Home() {
   return (
-    <h1>test</h1>
+    <main>
+      <Navbar />
+      <Body />
+    </main>
+
   );
 }

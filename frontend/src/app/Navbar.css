@@ -1,0 +1,29 @@
+.navbar {
+  background-image: linear-gradient(to right, theme('colors.purple-1'), theme('colors.blue-1'));
+  height: 40px;
+}
+
+#telegram-btn{
+  background-color: white;
+  border: 0px;
+  color: theme("colors.telegram-blue");
+  
+}
+
+#telegram-btn:hover{
+  border: 0px;
+  color: theme("colors.blue-1");
+  text-decoration: underline;
+}
+
+#deposit-btn{
+  background-color: white;
+  border: 0px;
+  color: theme("colors.purple-1");
+}
+
+#deposit-btn:hover{
+  border: 0px;
+  color: theme("colors.purple-2");
+  text-decoration: underline;
+}

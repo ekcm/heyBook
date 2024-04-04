@@ -16,8 +16,11 @@ module.exports = {
         "blue-1": "#12A8FD",
         "blue-2": "#0B74B0",
         "blue-3": "#4ABEFF",
+        "purple-1": "#A45EE5",
+        "purple-2": "#7D3CC7",
+        "telegram-blue": "#0088cc"
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

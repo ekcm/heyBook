@@ -1,0 +1,15 @@
+.card-btn{
+  background-color: theme("colors.purple-1");
+  color: white;
+  border: 0px;
+}
+
+.card-btn:hover{
+  background-color: theme("colors.purple-2");
+  color: white;
+  border: 0px;
+}
+
+.card-body{
+  padding: 12px;
+}
