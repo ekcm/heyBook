@@ -27,3 +27,24 @@
   color: theme("colors.purple-2");
   text-decoration: underline;
 }
+
+.modal-box{
+  background-color: white;
+  color: theme("colors.purple-2")
+}
+
+.input{
+  background-color: white;
+  margin-top: 10px;
+}
+
+#modal-submit-button{
+  margin-top: 10px;
+  background-color: theme("colors.purple-1");
+  color: white;
+  border: 0px;
+}
+
+#modal-submit-button:hover{
+  background-color: theme("colors.purple-2");
+}

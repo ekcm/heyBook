@@ -1,7 +1,6 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import { createRoot } from 'react-dom/client';
 
 export default function Body() {
   const [cards, setCards] = useState([]);
