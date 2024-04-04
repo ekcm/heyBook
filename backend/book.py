@@ -27,7 +27,8 @@ def get_all_book():
     sql = "SELECT * FROM book"
     cursor.execute(sql)
     result = cursor.fetchall()
-    # print(result)
+    print(len(result))
+    print(result)
     
     book_result = []
     for book in result:
@@ -44,6 +45,38 @@ def get_all_book():
     data = {"error": str(e)}
     print(data)
     return jsonify(data), 500    
+  
+@app.route("/withdraw/<int:bookID>", methods=["DELETE"])
+def withdraw_book(bookID):
+  try:
+    sql = f"DELETE FROM book WHERE bookID = {bookID}"
+    cursor.execute(sql)
+    if cursor.rowcount == 0:
+      data = {"message": f"book with ID {bookID} not found"}
+      return jsonify(data), 404  # 404 not found
+    else:
+      db.commit()
+      data = {"message": f"book with ID {bookID} has been withdrawn"}
+      return jsonify(data), 200  # 200 OK
+  except Exception as e:
+    data = {"error": str(e)}
+    return jsonify(data), 500    # 500 internal server error
+  
+@app.route("/deposit", methods=["POST"])
+def insert_book():
+  try:
+    print("ok")
+    data = request.json
+    book_title = data["book_title"]
+    book_author = data["book_author"]
+    book_genre = data["book_genre"]
+    sql = "INSERT INTO book (bookTitle, bookAuthor, bookGenre) VALUES (%s, %s, %s)"
+    cursor.execute(sql, (book_title, book_author, book_genre))
+    db.commit()
+    data = {"message": "book has been inserted"}
+    return jsonify(data), 200
+  except Exception as e:
+    return str(e)
 
 
 if __name__ == "__main__":

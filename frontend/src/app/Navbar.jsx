@@ -17,7 +17,7 @@ const buttonClick = async() => {
   }
 
   try{
-    const url = "http://127.0.0.1:5001/deposit";
+    const url = "http://127.0.0.1:5000/deposit";
     const response = await fetch(url, {
       method: 'POST',
       headers: {
