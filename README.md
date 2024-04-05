@@ -19,7 +19,11 @@ This web application will facilitate easy listing, searching, and exchanging of 
 The core features are as followed:
 * Depositing of a book
 * Withdrawal of a book
-* Being notified of a book being deposited or withdrawn from heyBook via Telegram. Notifying a user when a new book has been deposited or withdrawn provides a much more user-friendly experience as the user does not need to keep checking the heyBook website to be kept up to date. 
+* Being notified of a book being deposited or withdrawn from heyBook via Telegram. Notifying a user when a new book has been deposited or withdrawn provides a much more user-friendly experience as the user does not need to keep checking the heyBook website to be kept up to date.
+
+<!-- Quick Demo -->
+### Quick Demo
+https://youtu.be/fdQDjhW_JUs
 
 ### Built With
 * [Python](https://www.python.org/)
