@@ -44,12 +44,13 @@ database=
 telegram_token=
 telegram_chat_id=
 ```
-4. cd into backend, start both Python services first. This should start a Flask server on Port 5000 (for book.py) and Port 5001 (for telegram_service.py)
+4. Copy data from backend/db.sql and run in MySQL
+5. cd into backend, start both Python services first. This should start a Flask server on Port 5000 (for book.py) and Port 5001 (for telegram_service.py)
 ```
 Python book.py
 Python telegram_service.py
 ```
-5. cd into frontend, and type npm run dev to start the web application
+6. cd into frontend, and type npm run dev to start the web application
 ```
 npm run dev
 ```
