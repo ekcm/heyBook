@@ -15,7 +15,7 @@ export default function Card({title, author, genre, onDelete}) {
       <h6 className="book-author">{author}</h6>
       <p className="book-genre">{genre}</p>
       <button className="btn card-btn" onClick={handleDelete}>
-        <h4>Dabao</h4>
+        <h4>Take this book home!</h4>
       </button>
     </div>
   </div>

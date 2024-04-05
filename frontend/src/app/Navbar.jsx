@@ -45,6 +45,10 @@ const buttonClick = async() => {
   }
 }
 
+const directToTelegram = async() => {
+  window.location.href = 'https://t.me/+viKr-pV--H05NjY1'
+}
+
 export default function Navbar(){
 
   return (
@@ -54,10 +58,8 @@ export default function Navbar(){
       </div>
       
       <div className="navbar-end">
-        <button className="btn mr-4" id="telegram-btn">Join us on Telegram!</button>
-        {/* <button className="btn" id="deposit-btn">Deposit a book!</button> */}
+        <button className="btn mr-4" id="telegram-btn" onClick={directToTelegram}>Join us on Telegram!</button>
 
-        {/* Open the modal using document.getElementById('ID').showModal() method */}
         <button className="btn" id="deposit-btn" onClick={()=>document.getElementById('my_modal_2').showModal()}>Deposit a book!</button>
         <dialog id="my_modal_2" className="modal">
           <div className="modal-box">

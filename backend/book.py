@@ -3,6 +3,7 @@ import mysql.connector
 from dotenv import load_dotenv
 import os
 from flask_cors import CORS
+import requests
 
 load_dotenv()
 app = Flask(__name__)
@@ -49,14 +50,27 @@ def get_all_book():
 @app.route("/withdraw/<int:bookID>", methods=["DELETE"])
 def withdraw_book(bookID):
   try:
-    sql = f"DELETE FROM book WHERE bookID = {bookID}"
-    cursor.execute(sql)
+    get_book_sql = f"SELECT * FROM book WHERE bookID = {bookID}"
+    cursor.execute(get_book_sql)
+    book_data = cursor.fetchone()
+    book_title = book_data[1]
+    book_author = book_data[2]
+
+    delete_sql = f"DELETE FROM book WHERE bookID = {bookID}"
+    cursor.execute(delete_sql)
     if cursor.rowcount == 0:
       data = {"message": f"book with ID {bookID} not found"}
       return jsonify(data), 404  # 404 not found
     else:
       db.commit()
       data = {"message": f"book with ID {bookID} has been withdrawn"}
+
+      # telegram
+      url = "http://127.0.0.1:5001/telegram"
+      message = f"{book_title} by {book_author} has been withdrawn from heyBook. We hope you enjoy it!"
+      print(message)
+      response = requests.post(url, json={"message": message})
+
       return jsonify(data), 200  # 200 OK
   except Exception as e:
     data = {"error": str(e)}
@@ -74,6 +88,12 @@ def insert_book():
     cursor.execute(sql, (book_title, book_author, book_genre))
     db.commit()
     data = {"message": "book has been inserted"}
+
+    # telegram
+    url = "http://127.0.0.1:5001/telegram"
+    message = f"A kind donor has donated {book_title} by {book_author} to heyBook. Thank you!"
+    response = requests.post(url, json={"message": message})
+
     return jsonify(data), 200
   except Exception as e:
     return str(e)
