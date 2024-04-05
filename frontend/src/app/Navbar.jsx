@@ -7,10 +7,6 @@ const buttonClick = async() => {
   const book_author = document.getElementById('book-author-input').value;
   const book_genre = document.getElementById('book-genre-input').value;
 
-  console.log(book_title)
-  console.log(book_author)
-  console.log(book_genre)
-
   if (book_title == "" || book_author == "" || book_genre == ""){
     document.getElementById('empty-input-warning').innerHTML = "Please fill in all fields!";
     return;

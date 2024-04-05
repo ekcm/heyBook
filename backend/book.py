@@ -28,8 +28,6 @@ def get_all_book():
     sql = "SELECT * FROM book"
     cursor.execute(sql)
     result = cursor.fetchall()
-    print(len(result))
-    print(result)
     
     book_result = []
     for book in result:
@@ -44,7 +42,6 @@ def get_all_book():
     return jsonify(data), 200
   except Exception as e:
     data = {"error": str(e)}
-    print(data)
     return jsonify(data), 500    
   
 @app.route("/withdraw/<int:bookID>", methods=["DELETE"])
@@ -68,7 +65,6 @@ def withdraw_book(bookID):
       # telegram
       url = "http://127.0.0.1:5001/telegram"
       message = f"{book_title} by {book_author} has been withdrawn from heyBook. We hope you enjoy it!"
-      print(message)
       response = requests.post(url, json={"message": message})
 
       return jsonify(data), 200  # 200 OK
@@ -79,7 +75,6 @@ def withdraw_book(bookID):
 @app.route("/deposit", methods=["POST"])
 def insert_book():
   try:
-    print("ok")
     data = request.json
     book_title = data["book_title"]
     book_author = data["book_author"]
